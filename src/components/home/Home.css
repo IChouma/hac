@@ -1,0 +1,36 @@
+#home {
+  padding: 0 ;
+  position: relative;
+  background-color: transparent !important;
+}
+.swiper-button-prev, .swiper-button-next {
+  top:unset !important;
+  bottom:40%;
+  position: absolute;
+  background-color: rgb(36, 9, 134);
+  height: 30px !important;
+  width: 30px !important;
+  border-radius: 50%;
+  margin-top: 50%;
+}
+.swiper-slide{
+  background-color: transparent !important;
+}
+.swiper-button-prev::after, .swiper-button-next::after{
+  color: var(--text);
+  font-size: 18px !important;
+}
+
+
+.swiper-button-prev{
+  left: calc(50% - 40px);
+}
+
+.swiper-button-next {
+  right: calc(50% - 40px);
+}
+@media (max-width:480px) {
+  .swiper-button-prev, .swiper-button-next{
+    display: none !important;
+  }
+}

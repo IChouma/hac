@@ -1,0 +1,6 @@
+#blogs{
+    padding-top: 4rem;
+    padding-bottom:4rem ;
+    height: auto-fit;
+    background-image: var(--bg) ;
+  }

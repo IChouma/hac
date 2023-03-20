@@ -1,0 +1,30 @@
+.buynow i {
+  margin-right: 5px;
+  font-size: 18px !important;
+}
+.box.offer{
+   /* max-width: 371px !important; */
+   position: relative;
+}
+.box .ofer{
+  position: absolute;
+  background-color:var(--black);
+  color: var(--main-color);
+  top: 0;
+  right: 0;
+  height: 6rem;
+  width: 11rem;
+  font-size: 1.7rem;
+  line-height: 6rem;
+
+}
+.box:hover .ofer{
+  /* background-color: var(--main-color)!important; */
+  color: var(--main-color) !important;
+}
+#menu{
+  padding-top: 4rem;
+  padding-bottom:4rem ;
+  height: auto-fit;
+  background-image: var(--bg);
+}

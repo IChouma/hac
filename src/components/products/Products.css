@@ -1,0 +1,17 @@
+.buynow i {
+  margin-right: 5px;
+  font-size: 18px !important;
+}
+
+.fas{
+  /* margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1rem !important;
+  color: white !important; */
+}
+#products{
+  padding-top: 4rem;
+  padding-bottom:4rem ;
+  height: auto-fit;
+  background-image: var(--bg);
+}
