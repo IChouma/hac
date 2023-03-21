@@ -58,7 +58,7 @@ function  Header() {
             <BsInfoCircle  className='icon' style={{color: '#ffffff', fontSize: '25px'}}/></div></li>
             <li >
                 <div onClick={()=>setMsd(!msd)}  className='drop'><a href="#">Men services</a>
-                 <RiArrowDropDownLine   style={{color: '#ffffff', fontSize: '25px'}}/>
+                 <RiArrowDropDownLine   style={{color: '#0b1b67', fontSize: '25px'}}/>
             <FcManager style={{color: '#ffffff', fontSize: '25px'}}/></div>
             
             <ul className={`name ${msd?'display':''}`}  >
@@ -105,7 +105,7 @@ function  Header() {
             </li>
             <li>
               <div onClick={()=>setWsd(!wsd)} className='drop'><a href="#">Women services</a>
-              <RiArrowDropDownLine style={{color: '#ffffff', fontSize: '25px'}}/>
+              <RiArrowDropDownLine style={{color: '#0b1b67', fontSize: '25px'}}/>
             <FcBusinesswoman style={{color: '#ffffff', fontSize: '25px'}}/>
             </div>
             <ul className={`name ${wsd?'display':''}`}>
@@ -172,8 +172,8 @@ function  Header() {
     </nav>
 
 <div className='send'>
-    <BsFacebook style={{color: '#ffffff', fontSize: '25px'}}/>
-    <BsTwitter style={{color: '#ffffff', fontSize: '25px'}}/>
+    <BsFacebook style={{color: '#0b1b67', fontSize: '25px'}}/>
+    <BsTwitter style={{color: '#0b1b67 ', fontSize: '25px'}}/>
 
 </div>
     <div class="icons">

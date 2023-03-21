@@ -4,7 +4,10 @@
   align-items: center;
   gap: 2rem;
 }
-
+.icon svg{
+  color: black !important
+  ;
+}
 ul {
   padding: 0;
   list-style-type: none;
@@ -19,7 +22,9 @@ ul {
 ul li {
   position: relative;
   padding: 8px 25px;
+  display: flex;
 }
+
 .icon {
   display: none;
 }
@@ -31,7 +36,8 @@ ul li {
 }
 ul li a {
   display: block;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
   color: var(--text);
   padding: 0px;
   text-decoration: none;
@@ -39,13 +45,18 @@ ul li a {
   margin-left: none !important;
   white-space: nowrap;
 }
+ul.name a,ul.topic a{
+  color: var(--bg) ;
+}
 ul li ul.name {
   min-width: 100%;
-  background-image: var(--bg) ;
+  /* background-image: var(--) ; */
+  background-color: var(--text) ;
   display: none;
   position: absolute;
   z-index: 999;
   left: 0;
+  top: 100%;
   -webkit-animation: ul-down;
   -webkit-animation-duration: .4s;
   -webkit-animation-timing-function: ease-in;
@@ -73,7 +84,8 @@ ul li ul.name {
 }
 ul li ul li ul.topic {
   display: none;
-  background-image: var(--bg);
+  /* background-image: var(--bg); */
+  background-color: var(--text);
 }
 ul li ul li:hover ul.topic {
   display: block;
@@ -163,4 +175,20 @@ ul li ul.name li {
   .icon {
     display: block;
   }
+}
+@media (max-width:768px) {
+  ul li a {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--bg);
+  }
+  ul li li {
+    justify-content: center;
+    align-items: center;
+  }
+  ul li {
+  position: relative;
+  padding: 8px 25px;
+  display: block;
+}
 }

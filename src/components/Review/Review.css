@@ -32,20 +32,20 @@
 }
 @media (min-width: 768px), (max-width: 768px) {
   #review {
-    padding-left:5%;
-    padding-right:5%;
+    /* padding-left:5%;
+    padding-right:5%; */
   }
   #review .box{
-    max-width: 250px;
+    /* max-width: 250px; */
   }
 }
-@media (max-width: 464px) {
+@media (max-width: 480px) {
   #review .swiper {
     width: 100%;
   }
   #review {
-    padding-left:5%;
-    padding-right:5%;
+    /* padding-left:5%;
+    padding-right:5%; */
   }
   .swiper-pagination-bullet{
     height: 7px !important;
@@ -53,10 +53,6 @@
   }
 }
 @media (max-width:640px) {
-  #review {
-    padding-left:5%;
-    padding-right:5%;
-  }
 }
 #review .box .image {
   width: 100%;

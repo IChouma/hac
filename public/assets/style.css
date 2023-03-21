@@ -4,22 +4,22 @@
 :root {
   --main-color: #000000;
   --black: #13131a;
-  --bg-transparent:rgba(255, 255, 255,0);
-  --bg: radial-gradient( 
+  --bg-transparent:rgba(255, 255, 255,0.9);
+ --bg: #ffffffe8; 
+  /* --bg: radial-gradient( 
     circle 976px at 51.2% 51%, 
    rgba(11,27,103,1) 0%,
     rgba(16,66,157,1) 0%,
     rgba(11,27,103,1) 17.3%,
      rgba(11,27,103,1) 58.8%,
      rgba(11,27,103,1) 71.4%,
-   rgba(16,66,157,1) 100.2%, rgb(187, 187, 187) 100.2% );;
+   rgba(16,66,157,1) 100.2%, rgb(187, 187, 187) 100.2% );; */
   /* --border: 0.1rem solid rgba(255, 255, 255, 0.3); */
   --border: 0.1rem solidrgb(187, 130, 16);
-  --header-bg:;
   --footer-bx-shadow:rgb(44, 62, 80) 0px 15px 15px -15px inset;;
-  --title:rgba(255, 255, 255,.9);
-  --text:rgb(255, 255, 255);
-  --paragraph:rgba(255, 255, 255,.8);
+  --title:rgba(0, 0, 0,.9);
+  --text:#0b1b67;
+  --paragraph:rgbargba(0,19,26,1);
   --footer-bg: linear-gradient( 179.6deg,  rgba(0,19,26,1) -4.9%, rgba(0,77,105,1) 108.4% );;
   --btn:;
   --btn-hover:;
@@ -27,7 +27,7 @@
   --btn-bg:linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
   --btn-bx-shadow: box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);;
   --btn-bg-hover:;
-  --header-bg:rgb(0, 204, 255);
+  --header-bg:rgb(255, 255, 255);
 }
 
 * {
@@ -117,7 +117,8 @@ background-image: var(--bg);
 }
 
 .header {
-  background-image: var(--bg);
+  /* background-image: var(--bg); */
+  background-color:var(--header-bg) ;
   box-shadow: rgb(44, 62, 80) 0px -15px 15px -15px inset;
   display: flex;
   align-items: center;
@@ -133,6 +134,10 @@ background-image: var(--bg);
 
 .header .logo img {
   height: 4rem;
+  filter: blur(100%);
+  filter:brightness(100%);
+  filter:contrast(100%);
+  filter:invert(100%)
 }
 
 .header .icons div {
@@ -219,7 +224,7 @@ background-image: var(--bg);
 .products .box-container {
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(22rem,1fr));
+  grid-template-columns: repeat(4, minmax(22rem,1fr));
   gap: 3rem;
   padding: 2rem 14rem;
   background-color: none;
@@ -336,7 +341,7 @@ background-image: var(--bg);
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background: var(--text);
+  background: var(--bg);
   border: var(--border);
 }
 
@@ -354,20 +359,24 @@ input.btn{
   font-size: 1.7rem;
   color:var(--main-color);
   text-transform: none;
+  background-color: transparent;
 }
 
 .blogs .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(4, minmax(22rem, 1fr));
   gap: 1.5rem;
-  padding: 5rem;
+  padding: 10rem;
  justify-content: center;
+ overflow: hidden;
 }
 
 .blogs .box-container .box {
   padding: 1rem;
   border-style: solid;
-  border-image: linear-gradient(to right, #00c7de, #01e37d) 1;
+  border: .5rem solid #0b1b67;
+  border-radius: 1rem !important;
+  overflow: hidden;
 }
 .blogs .box-container .box .btn {
     margin-top: 1rem;
@@ -398,7 +407,6 @@ input.btn{
 
 .blogs .box-container .box .content {
   padding: 1rem;
-  max-height: 15rem;
 }
 
 .blogs .box-container .box .content .title {
@@ -486,8 +494,11 @@ input.btn{
     display: inline-block;
   }
   .products .box-container {
-    padding: 2rem 3rem ;
+    padding: 4rem ;
+  grid-template-columns: repeat(2, minmax(22rem,1fr));
   }
+  .blogs .box-container {
+    grid-template-columns: repeat(2, minmax(22rem, 1fr));}
   .contact .row form {
     min-width: 60%;
   }
@@ -495,6 +506,7 @@ input.btn{
 width: 0;
   }
   .header .navbar {
+    background-color: var(--text);
     position: absolute;
     overflow-y: auto !important;
     display: block !important;
@@ -516,7 +528,7 @@ width: 0;
     background-position: left;
     justify-content: center;
     text-align: center;
-    background-image: var(--bg) ;
+    background-color: var(--text) ;
   }
 
   .home .content h3 {
@@ -541,9 +553,12 @@ width: 0;
     min-width: 90%;
   }
   .blogs .box-container{
-    padding: 1.5rem;
+    padding: 10rem;
+  grid-template-columns: repeat(1, minmax(22rem, 1fr));
+
   }
   .products .box-container {
-    padding: 2rem ;
+    padding: 4rem ;
+  grid-template-columns: repeat(1, minmax(22rem,1fr));
   }
 }

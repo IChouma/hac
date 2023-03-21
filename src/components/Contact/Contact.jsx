@@ -4,15 +4,29 @@ import { motion, useInView } from "framer-motion"
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import './Contact.css'
 import { PhoneInput } from 'react-international-phone';
+import emailjs from '@emailjs/browser';
 import 'react-international-phone/style.css';
 
 function  Contact() {
-  const [active,setActive]=useState(false);
-// const ContactUs=useNavigate()
-// const home=useNavigate()
+const [active,setActive]=useState(false);
+const [email, setEmail] = useState('');
+const [name, setName] = useState('');
 const [phone, setPhone] = useState('tr');
 const ref = useRef(null);
 const isInView = useInView(ref, { once: true });
+const form = useRef();
+const tel = document.querySelector('.react-international-phone-input');
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_fsf2i8f', 'template_m2egqpz', form.current, '-y3KfJZp3shfQ2Z8M')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
 useEffect(() => {
   axios.get(`https://ipinfo.io/json?token=42ed2540310f93`)
   .then(response => {
@@ -34,7 +48,7 @@ useEffect(() => {
 
     <div ref={ref} class="row">
 
-        <form action="https://formsubmit.co/abdeljabarichouma@gmail.com" method="POST">
+        <form ref={form} onSubmit={sendEmail} >
             <h3>enter your information </h3>
             <div
             style={{
@@ -43,21 +57,17 @@ useEffect(() => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
               }} class="inputBox">
                     <div>
-                   {phone!=='tr'
-                    ?<PhoneInput 
+                   {phone &&
+                    <PhoneInput 
+                      name={'user-phone'}
                         defaultCountry={phone}
                         forceDialCode={true}
                         showDisabledDialCodeAndPrefix={true}
                         value={phone}
                         onChange={(phone) => setPhone(phone)}
                         />
-                      :<PhoneInput 
-                      defaultCountry={'tr'}
-                      forceDialCode={true}
-                      showDisabledDialCodeAndPrefix={true}
-                      value={phone}
-                      onChange={(phone) => setPhone(phone)}
-                      />}
+                      }
+            <input style={{"display":"none"}}  type="tel" name="user_phone" value={phone}/>
     </div>
             </div>
             <div
@@ -67,7 +77,7 @@ useEffect(() => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.7s"
               }} class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="Name"/>
+                <input  type="text" name="user_name" placeholder="Name"/>
             </div>
             <div
             style={{
@@ -76,7 +86,7 @@ useEffect(() => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s"
               }} class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="Email"/>
+                <input type="email" name="user_email" placeholder="Email"/>
             </div>
             <input
             style={{

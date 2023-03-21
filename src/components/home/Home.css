@@ -17,7 +17,7 @@
   background-color: transparent !important;
 }
 .swiper-button-prev::after, .swiper-button-next::after{
-  color: var(--text);
+  color: var(--bg);
   font-size: 18px !important;
 }
 

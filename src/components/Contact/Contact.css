@@ -7,6 +7,9 @@
     background-image: var(--bg);
     overflow: hidden;
 }
+.react-international-phone-input{
+border-color: transparent !important;
+}
 form {
   /* direction: rtl; */
 }
