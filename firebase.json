@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build",
+    "site":"hac-clinic",
     "ignore": [
       "firebase.json",
       "**/.*",

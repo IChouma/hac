@@ -6,7 +6,8 @@ import './Contact.css'
 import { PhoneInput } from 'react-international-phone';
 import emailjs from '@emailjs/browser';
 import 'react-international-phone/style.css';
-
+import { doc,addDoc} from "firebase/firestore";
+import {clientsRef,db } from '../../firebase.js'
 function  Contact() {
 const [active,setActive]=useState(false);
 const [email, setEmail] = useState('');
@@ -16,7 +17,13 @@ const ref = useRef(null);
 const isInView = useInView(ref, { once: true });
 const form = useRef();
 const tel = document.querySelector('.react-international-phone-input');
-
+const addClient = function(){
+  addDoc(doc(db,clientsRef),{
+    number:222,
+    name:"name",
+    email:"email",
+  })
+  }
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -48,7 +55,12 @@ useEffect(() => {
 
     <div ref={ref} class="row">
 
-        <form ref={form} onSubmit={sendEmail} >
+        <form   ref={form} 
+        onSubmit={()=>{
+          addClient();
+          sendEmail()
+        }
+          } >
             <h3>enter your information </h3>
             <div
             style={{
@@ -77,7 +89,9 @@ useEffect(() => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.7s"
               }} class="inputBox">
                 <span class="fas fa-user"></span>
-                <input  type="text" name="user_name" placeholder="Name"/>
+                <input 
+                        onChange={(name) => setName(name.target.value)}
+                        type="text" name="user_name" placeholder="Name"/>
             </div>
             <div
             style={{
@@ -86,9 +100,11 @@ useEffect(() => {
                 transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.9s"
               }} class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" name="user_email" placeholder="Email"/>
+                <input 
+                        onChange={(email) => setEmail(email.target.value)}
+                        type="email" name="user_email" placeholder="Email"/>
             </div>
-            <input
+            <input onClick={()=>addClient}
             style={{
                 transform: isInView ? "none" : "translateY(200px)",
                 opacity: isInView ? 1 : 0,
